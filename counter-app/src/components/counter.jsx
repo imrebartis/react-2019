@@ -5,8 +5,8 @@ class Counter extends Component {
     count: 0
   };
 
-  handleIncrement() {
-    console.log("increment clicked");
+  handleIncrement = () => {
+    console.log("increment clicked", this);
   }
 
   render() {
