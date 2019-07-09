@@ -16,3 +16,7 @@ code {
 nav .pagination .page-item .page-link:focus {
   box-shadow: none;
 }
+
+.clickable {
+  cursor: pointer;
+}
