@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
+import Customers from "./components/customers";
+import MovieForm from "./components/movieForm";
 import Movies from "./components/movies";
+import NavBar from "./components/navBar";
 import NotFound from "./components/notFound";
 import Rentals from "./components/rentals";
-import Customers from "./components/customers";
-import NavBar from './components/navBar';
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <NavBar />
       <main className="container">
         <Switch>
+          <Route path="/movies/:id" component={MovieForm} />
           <Route path="/movies" component={Movies} />
           <Route path="/customers" component={Customers} />
           <Route path="/rentals" component={Rentals} />
@@ -23,6 +25,6 @@ function App() {
       </main>
     </React.Fragment>
   );
-}
+};
 
 export default App;
