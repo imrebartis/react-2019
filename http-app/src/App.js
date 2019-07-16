@@ -3,7 +3,13 @@ import { ToastContainer } from "react-toastify";
 import http from "./services/httpService";
 import config from "./config.json";
 import "react-toastify/dist/ReactToastify.css";
+import * as Sentry from "@sentry/browser";
 import "./App.css";
+
+Sentry.init({
+  dsn: "https://ee44ea3f7a544a9a80691806d51f1df1@sentry.io/1505841"
+});
+
 
 class App extends Component {
   state = {
