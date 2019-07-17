@@ -6,6 +6,7 @@ import Customers from "./components/customers";
 import MovieForm from "./components/movieForm";
 import Movies from "./components/movies";
 import LoginForm from "./components/loginForm";
+import Logout from "./components/logout";
 import NavBar from "./components/navBar";
 import NotFound from "./components/notFound";
 import RegisterForm from "./components/registerForm";
@@ -28,11 +29,12 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
-        <NavBar user={this.state.user}/>
+        <NavBar user={this.state.user} />
         <main className="container">
           <Switch>
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
+            <Route path="/logout" component={Logout} />
             <Route path="/movies/:id" component={MovieForm} />
             <Route path="/movies" component={Movies} />
             <Route path="/customers" component={Customers} />
