@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import MoviesTable from "./moviesTable";
 import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
@@ -24,7 +24,7 @@ class Movies extends Component {
   async componentDidMount() {
     const { data } = await getGenres();
     const genres = [{ _id: "", name: "All Genres" }, ...data];
-    const { data:movies } = await getMovies();
+    const { data: movies } = await getMovies();
     this.setState({ movies, genres });
   }
 
@@ -35,12 +35,11 @@ class Movies extends Component {
 
     try {
       await deleteMovie(movie._id);
-    }
-    catch (ex) {
+    } catch (ex) {
       if (ex.response && ex.response.status === 404)
-        toast.error("This movie has already been deleted.")
+        toast.error("This movie has already been deleted.");
 
-    this.setState({ movies: originalMovies });
+      this.setState({ movies: originalMovies });
     }
   };
 
