@@ -12,7 +12,15 @@ export function getMovie(movieId) {
 }
 
 export function saveMovie(movie) {
-  console.log(movie);
+  if (movie._id) {
+    // avoid directly modifying the movie object
+    // which is part of the state (see doSubmit)
+    const body = {...movie};
+    delete body._id;
+    return http.put(`${apiEndpoint}/${movie._id}`, body);
+  }
+
+  return http.post(`${apiEndpoint}`, movie);
 }
 
 export function deleteMovie(movieId) {
